@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import Image from "next/image";
 
 const values = [
   {
@@ -27,16 +29,20 @@ const team = [
   {
     name: "M Sai Yadav",
     role: "CEO",
-    quote:
-      '"We build impact. Our designs, our schedules, our efficiency — all of it must serve people first."',
-    bg: "bg-gradient-to-br from-orange-400 to-red-400",
+    img: "/ceo.png",
+    quote: '"We build impact. Our designs, our schedules, our efficiency — all of it must serve people first."',
+    accent: "#c9a84c",
+    bg: "from-[#0f1f3d] to-[#1a3560]",
+    delay: "0s",
   },
   {
     name: "M Nageswara Rao",
     role: "CMD",
-    quote:
-      '"Where others saw a barren stretch of land, he saw the beginnings of a dream — an integrated township that would one day buzz with life."',
-    bg: "bg-gradient-to-br from-blue-400 to-indigo-500",
+    img: "/cmd(1).png",
+    quote: '"Where others saw a barren stretch of land, he saw the beginnings of a dream — an integrated township that would one day buzz with life."',
+    accent: "#c9a84c",
+    bg: "from-[#1a1a1a] to-[#2d2d2d]",
+    delay: "0.2s",
   },
 ];
 
@@ -122,20 +128,64 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership */}
-      <section className="py-14 bg-white">
+      <section className="py-16 bg-gradient-to-b from-[#0a0f1e] to-[#111827]">
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-10">OUR LEADERSHIP</h2>
+          <h2 className="text-2xl font-bold text-center text-white mb-2">OUR LEADERSHIP</h2>
+          <div className="flex justify-center items-center gap-1 mb-12">
+            <span className="w-6 h-1 bg-yellow-400/60 rounded" />
+            <span className="w-10 h-1 bg-yellow-400 rounded" />
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {team.map((t) => (
-              <div key={t.name} className={`${t.bg} text-white rounded-xl p-8`}>
-                <div className="w-20 h-20 rounded-full bg-white/20 mx-auto mb-4 flex items-center justify-center text-3xl">
-                  👤
-                </div>
-                <p className="text-white/90 leading-relaxed mb-6 text-sm text-center">{t.quote}</p>
-                <div className="border-t border-white/30 pt-4 text-center">
-                  <div className="w-8 h-0.5 bg-white/50 mx-auto mb-2" />
-                  <p className="font-bold">{t.name}</p>
-                  <p className="text-sm text-white/70">{t.role}</p>
+              <div
+                key={t.name}
+                className={`relative bg-gradient-to-br ${t.bg} rounded-2xl overflow-hidden
+                  border border-yellow-400/20 shadow-2xl
+                  hover:-translate-y-2 hover:shadow-yellow-400/10 hover:border-yellow-400/50
+                  transition-all duration-500`}
+                style={{ animationDelay: t.delay }}
+              >
+                {/* Gold top accent line */}
+                <div className="h-1 w-full bg-gradient-to-r from-yellow-600 via-yellow-300 to-yellow-600" />
+
+                <div className="p-8 flex flex-col items-center text-center">
+                  {/* Photo with gold ring */}
+                  <div className="relative mb-6">
+                    <div className="w-28 h-28 rounded-full p-[3px] bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg shadow-yellow-500/30
+                      animate-[spin_8s_linear_infinite]">
+                      <div className="w-full h-full rounded-full overflow-hidden bg-gray-900">
+                        <Image
+                          src={t.img}
+                          alt={t.name}
+                          width={112}
+                          height={112}
+                          className="w-full h-full object-cover object-top"
+                          style={{ animation: "none" }}
+                        />
+                      </div>
+                    </div>
+                    {/* Stop inner image from spinning */}
+                    <div className="absolute inset-[3px] rounded-full overflow-hidden">
+                      <Image
+                        src={t.img}
+                        alt={t.name}
+                        width={112}
+                        height={112}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Quote */}
+                  <p className="text-white/80 text-sm leading-relaxed italic mb-6 max-w-xs">
+                    {t.quote}
+                  </p>
+
+                  {/* Divider */}
+                  <div className="w-12 h-px bg-gradient-to-r from-transparent via-yellow-400 to-transparent mb-4" />
+
+                  <p className="font-bold text-white text-lg">{t.name}</p>
+                  <p className="text-yellow-400 text-xs font-semibold tracking-widest uppercase mt-1">{t.role}</p>
                 </div>
               </div>
             ))}
