@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -108,144 +108,200 @@ const recentProjects = [
   },
 ];
 
+const lifestyleAmenities = [
+  {
+    title: "Meditation Garden",
+    desc: "Refresh your mind and body in calming yoga and meditation spaces within the community.",
+    img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=80",
+  },
+  {
+    title: "Kids Play Area",
+    desc: "Safe kids play area designed for fun, laughter, and joyful childhood moments.",
+    img: "https://images.unsplash.com/photo-1575783970733-1aaedde1db74?w=400&q=80",
+  },
+  {
+    title: "Gym",
+    desc: "Fully equipped modern gym with professional-grade equipment for all fitness levels.",
+    img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80",
+  },
+  {
+    title: "Kids Pool",
+    desc: "Safe and fun swimming pool designed especially for children to splash and play.",
+    img: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=400&q=80",
+  },
+  {
+    title: "Fitness Park",
+    desc: "Dedicated fitness park combining outdoor space with gym-style workout zones.",
+    img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80",
+  },
+  {
+    title: "Multipurpose Hall",
+    desc: "Spacious hall for community events, celebrations, and gatherings of all kinds.",
+    img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&q=80",
+  },
+  {
+    title: "Hospital",
+    desc: "Nearby hospital ensuring residents have quick access to quality healthcare at all times.",
+    img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&q=80",
+  },
+  {
+    title: "Guest Rooms",
+    desc: "Comfortable guest rooms available for visiting family and friends within the community.",
+    img: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&q=80",
+  },
+];
+
+const featuredProperties = [
+  {
+    id: 1,
+    badge: "For Sale",
+    img: "/Amaravati Plots.png",
+    price: "₹18.5 L",
+    title: "Capital Amaravathi Plot",
+    location: "Amaravathi, Andhra Pradesh",
+    size: "200 sq yds",
+    road: "40 ft BT Road",
+    approval: "CRDA Approved",
+  },
+  {
+    id: 2,
+    badge: "New Listing",
+    img: "/open plot.png",
+    price: "₹12 L",
+    title: "Vanukuru Open Plot",
+    location: "Vanukuru, near Vijayawada",
+    size: "150 sq yds",
+    road: "33 ft Road",
+    approval: "DTCP Approved",
+  },
+  {
+    id: 3,
+    badge: "Premium",
+    img: "/Amaravati Plots.png",
+    price: "₹24 L",
+    title: "Gannavaram Premium Plot",
+    location: "Gannavaram, Krishna Dist.",
+    size: "300 sq yds",
+    road: "60 ft BT Road",
+    approval: "RERA Registered",
+  },
+];
+
 const types = ["Apartment", "Villa", "Open Plot", "Commercial", "Farm Land"];
 const categories = ["Buy", "Rent", "Lease"];
 const locations = ["Amaravathi", "Vanukuru", "Yakamuru", "Mallavalli", "Gannavaram", "Pedamaddali"];
 const priceRanges = ["Under ₹10L", "₹10L – ₹25L", "₹25L – ₹50L", "₹50L – ₹1Cr", "Above ₹1Cr"];
 
+const slides = ["/slide1.png", "/slide2.png"];
+
 export default function Home() {
-  const [showAdvanced, setShowAdvanced] = useState(false);
-  const [search, setSearch] = useState({ type: "", category: "", location: "", price: "", size: "", approval: "" });
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setCurrent((s) => (s + 1) % slides.length), 5000);
+    return () => clearInterval(t);
+  }, []);
 
   return (
     <div>
-      {/* ── HERO with real banner image ── */}
-      <section className="relative min-h-[92vh] flex flex-col items-center justify-center text-white overflow-hidden">
-        {/* Banner video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        >
-          <source src="/hero banner video.mp4" type="video/mp4" />
-        </video>
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/55" />
-
-        {/* Hero text */}
-        <div className="relative z-10 text-center px-4 mb-10 mt-4">
-          <p className="text-blue-300 text-xs tracking-widest uppercase mb-2">— Discover Your Dream Plot —</p>
-          <h1 className="text-2xl md:text-4xl font-extrabold leading-tight mb-3 drop-shadow-lg">
-            Open Plots in<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-              Capital Amaravathi
-            </span>
-          </h1>
-          <p className="text-white/80 text-sm max-w-xl mx-auto drop-shadow">
-            Stop searching, start investing — MNR Infra Developers, Vijayawada
-          </p>
+      {/* ── HERO SLIDE ── */}
+      <section className="relative w-full overflow-hidden" style={{ height: "calc(100vh - 9rem)" }}>
+        {slides.map((src, i) => (
+          <Image
+            key={src}
+            src={src}
+            alt={`MNR Infra Developers slide ${i + 1}`}
+            fill
+            className={`object-cover object-center transition-opacity duration-1000 ${i === current ? "opacity-100" : "opacity-0"}`}
+            priority={i === 0}
+          />
+        ))}
+        {/* Dot indicators */}
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              aria-label={`Slide ${i + 1}`}
+              className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-6 bg-white" : "w-2 bg-white/50"}`}
+            />
+          ))}
         </div>
+        {/* Prev / Next arrows */}
+        <button
+          onClick={() => setCurrent((s) => (s - 1 + slides.length) % slides.length)}
+          aria-label="Previous"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/30 hover:bg-black/50 rounded-full flex items-center justify-center text-white transition-colors"
+        >
+          ‹
+        </button>
+        <button
+          onClick={() => setCurrent((s) => (s + 1) % slides.length)}
+          aria-label="Next"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-black/30 hover:bg-black/50 rounded-full flex items-center justify-center text-white transition-colors"
+        >
+          ›
+        </button>
+      </section>
 
-        {/* ── SEARCH BOX — overlaid on banner ── */}
-        <div className="relative z-10 w-full max-w-4xl px-4 pb-12">
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-            {/* Main row */}
-            <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
-              <div className="p-4">
-                <label className="block text-xs font-semibold text-gray-400 uppercase mb-1">Type</label>
-                <select
-                  value={search.type}
-                  onChange={(e) => setSearch({ ...search, type: e.target.value })}
-                  className="w-full text-sm text-gray-700 focus:outline-none bg-transparent"
-                >
-                  <option value="">All Types</option>
-                  {types.map((t) => <option key={t}>{t}</option>)}
-                </select>
-              </div>
-              <div className="p-4">
-                <label className="block text-xs font-semibold text-gray-400 uppercase mb-1">Category</label>
-                <select
-                  value={search.category}
-                  onChange={(e) => setSearch({ ...search, category: e.target.value })}
-                  className="w-full text-sm text-gray-700 focus:outline-none bg-transparent"
-                >
-                  <option value="">Buy / Rent</option>
-                  {categories.map((c) => <option key={c}>{c}</option>)}
-                </select>
-              </div>
-              <div className="p-4">
-                <label className="block text-xs font-semibold text-gray-400 uppercase mb-1">Location</label>
-                <select
-                  value={search.location}
-                  onChange={(e) => setSearch({ ...search, location: e.target.value })}
-                  className="w-full text-sm text-gray-700 focus:outline-none bg-transparent"
-                >
-                  <option value="">All Areas</option>
-                  {locations.map((l) => <option key={l}>{l}</option>)}
-                </select>
-              </div>
-              <div className="p-4 flex items-end">
-                <Link
-                  href="/properties"
-                  className="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 rounded-xl transition-colors text-sm"
-                >
-                  Search Properties
-                </Link>
-              </div>
+      {/* ── FEATURED COLLECTION ── */}
+      <section className="py-16 bg-[#f9f7f4]">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+              <p className="text-teal-700 text-xs font-bold tracking-widest uppercase mb-2">Featured Collection</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">Plots worth seeing</h2>
             </div>
+            <p className="text-gray-500 text-sm max-w-sm leading-relaxed">
+              A handpicked selection of standout plots combining location, legal clarity, and long-term value.
+            </p>
+          </div>
 
-            {/* Advanced toggle */}
-            <div className="border-t border-gray-100">
-              <button
-                onClick={() => setShowAdvanced(!showAdvanced)}
-                className="w-full flex items-center justify-center gap-1 py-2.5 text-xs text-gray-400 hover:text-gray-600 transition-colors"
-              >
-                Advanced Search {showAdvanced ? "▲" : "▼"}
-              </button>
-              {showAdvanced && (
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 px-4 pb-4">
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-400 uppercase mb-1">Price Range</label>
-                    <select
-                      value={search.price}
-                      onChange={(e) => setSearch({ ...search, price: e.target.value })}
-                      className="w-full text-sm text-gray-700 border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:border-blue-400"
-                    >
-                      <option value="">Any Price</option>
-                      {priceRanges.map((p) => <option key={p}>{p}</option>)}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-400 uppercase mb-1">Plot Size</label>
-                    <select
-                      value={search.size}
-                      onChange={(e) => setSearch({ ...search, size: e.target.value })}
-                      className="w-full text-sm text-gray-700 border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:border-blue-400"
-                    >
-                      <option value="">Any Size</option>
-                      <option>100–200 sq yds</option>
-                      <option>200–400 sq yds</option>
-                      <option>400+ sq yds</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-gray-400 uppercase mb-1">Approval</label>
-                    <select
-                      value={search.approval}
-                      onChange={(e) => setSearch({ ...search, approval: e.target.value })}
-                      className="w-full text-sm text-gray-700 border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:border-blue-400"
-                    >
-                      <option value="">Any</option>
-                      <option>CRDA Approved</option>
-                      <option>DTCP Approved</option>
-                      <option>RERA Registered</option>
-                    </select>
+          {/* Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredProperties.map((p) => (
+              <div key={p.id} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 group">
+                {/* Image */}
+                <div className="relative h-56 overflow-hidden">
+                  <Image
+                    src={p.img}
+                    alt={p.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {/* Badge */}
+                  <span className="absolute top-4 left-4 bg-white text-gray-800 text-xs font-semibold px-3 py-1 rounded-full shadow">
+                    {p.badge}
+                  </span>
+                  {/* Heart */}
+                  <button aria-label="Save" className="absolute top-4 right-4 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow hover:scale-110 transition-transform">
+                    <svg className="w-4 h-4 text-gray-400 hover:text-red-500 transition-colors" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Info */}
+                <div className="p-5">
+                  <p className="text-xl font-bold text-gray-900 mb-1">{p.price}</p>
+                  <h3 className="font-semibold text-gray-800 mb-1">{p.title}</h3>
+                  <p className="text-gray-400 text-sm mb-4">{p.location}</p>
+                  <div className="flex gap-4 text-gray-500 text-xs border-t border-gray-100 pt-3">
+                    <span>📐 {p.size}</span>
+                    <span>🛣️ {p.road}</span>
+                    <span>✅ {p.approval}</span>
                   </div>
                 </div>
-              )}
-            </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link href="/properties"
+              className="inline-block border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white font-semibold px-8 py-3 rounded-full transition-colors text-sm">
+              View All Properties →
+            </Link>
           </div>
         </div>
       </section>
@@ -298,10 +354,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── LIFESTYLE AMENITIES ── */}
+      <section className="py-16 bg-[#f9f7f4]">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-green-600 text-xs font-bold tracking-widest uppercase text-center mb-2">Community Living</p>
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-10">Lifestyle Amenities</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {lifestyleAmenities.map((a) => (
+              <div key={a.title} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                <div className="relative h-36 overflow-hidden">
+                  <img
+                    src={a.img}
+                    alt={a.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-bold text-gray-900 text-sm mb-1">{a.title}</h3>
+                  <p className="text-gray-500 text-xs leading-relaxed">{a.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── AMENITIES ── */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-1">OUR AMENITIES</h2>
+          <h2 className="text-2xl font-bold text-center mb-1">Property Benefits</h2>
           <div className="flex justify-center items-center gap-1 mb-10">
             <span className="w-6 h-1 bg-blue-300 rounded" />
             <span className="w-10 h-1 bg-blue-600 rounded" />
