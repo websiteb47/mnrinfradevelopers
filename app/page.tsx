@@ -92,27 +92,27 @@ const recentProjects = [
     title: "Open Plots In Capital Amaravathi",
     desc: "APCRDA-approved layouts with clear title and ready infrastructure near the capital region.",
     tag: "Amaravathi", color: "text-blue-600", bg: "bg-blue-50",
-    img: "/Amaravati Plots.png",
+    img: "/plot1.JPG",
   },
   {
     title: "Open Plots For Sale In Mallavalli",
     desc: "Rapidly emerging real estate destination near APIIC Industrial Park with excellent connectivity.",
     tag: "Mallavalli", color: "text-purple-600", bg: "bg-purple-50",
-    img: "/open plot.png",
+    img: "/plot2.JPG",
   },
   {
     title: "Open Plots For Sale In Gannavaram",
     desc: "Progressive development near airport — good returns expected for early buyers.",
     tag: "Gannavaram", color: "text-green-600", bg: "bg-green-50",
-    img: "/open plot.png",
+    img: "/plot1.JPG",
   },
 ];
 
 const lifestyleAmenities = [
   {
-    title: "Meditation Garden",
-    desc: "Refresh your mind and body in calming yoga and meditation spaces within the community.",
-    img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=80",
+    title: "24/7 Security",
+    desc: "Round-the-clock security with trained guards and CCTV surveillance for a safe community.",
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80",
   },
   {
     title: "Kids Play Area",
@@ -154,9 +154,9 @@ const lifestyleAmenities = [
 const featuredProperties = [
   {
     id: 1,
+    slug: "capital-amaravathi-plot",
     badge: "For Sale",
-    img: "/Amaravati Plots.png",
-    price: "₹18.5 L",
+    img: "/plot1.JPG",
     title: "Capital Amaravathi Plot",
     location: "Amaravathi, Andhra Pradesh",
     size: "200 sq yds",
@@ -165,9 +165,9 @@ const featuredProperties = [
   },
   {
     id: 2,
+    slug: "vanukuru-open-plot",
     badge: "New Listing",
-    img: "/open plot.png",
-    price: "₹12 L",
+    img: "/plot2.JPG",
     title: "Vanukuru Open Plot",
     location: "Vanukuru, near Vijayawada",
     size: "150 sq yds",
@@ -176,9 +176,9 @@ const featuredProperties = [
   },
   {
     id: 3,
+    slug: "gannavaram-premium-plot",
     badge: "Premium",
-    img: "/Amaravati Plots.png",
-    price: "₹24 L",
+    img: "/plot1.JPG",
     title: "Gannavaram Premium Plot",
     location: "Gannavaram, Krishna Dist.",
     size: "300 sq yds",
@@ -284,14 +284,19 @@ export default function Home() {
 
                 {/* Info */}
                 <div className="p-5">
-                  <p className="text-xl font-bold text-gray-900 mb-1">{p.price}</p>
                   <h3 className="font-semibold text-gray-800 mb-1">{p.title}</h3>
                   <p className="text-gray-400 text-sm mb-4">{p.location}</p>
-                  <div className="flex gap-4 text-gray-500 text-xs border-t border-gray-100 pt-3">
+                  <div className="flex gap-4 text-gray-500 text-xs border-t border-gray-100 pt-3 mb-4">
                     <span>📐 {p.size}</span>
                     <span>🛣️ {p.road}</span>
                     <span>✅ {p.approval}</span>
                   </div>
+                  <Link
+                    href={`/properties/${p.slug}`}
+                    className="block text-center bg-gray-900 hover:bg-gray-700 text-white text-sm font-semibold py-2.5 rounded-xl transition-colors"
+                  >
+                    View Details →
+                  </Link>
                 </div>
               </div>
             ))}

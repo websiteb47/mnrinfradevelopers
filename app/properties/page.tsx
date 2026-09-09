@@ -8,7 +8,7 @@ const properties = [
     title: "Open Plots In Capital Amaravathi",
     location: "Amaravathi, Andhra Pradesh",
     tag: "CRDA Approved", tagColor: "bg-blue-100 text-blue-700",
-    img: "/Amaravati Plots.png",
+    img: "/plot1.JPG",
     desc: "MNR Infra Developers brings you a curated collection of open plots for sale in and around Amaravathi — each designed to offer the ideal foundation for your dream home or a smart investment.",
     highlights: [
       "CRDA / DTCP Approved Layouts – Ensuring legal clarity and genuine ownership.",
@@ -23,7 +23,7 @@ const properties = [
     title: "Open Plots For Sale In Vanukuru",
     location: "Vanukuru, near Vijayawada",
     tag: "Hot Location", tagColor: "bg-orange-100 text-orange-700",
-    img: "/open plot.png",
+    img: "/plot2.JPG",
     desc: "Open plots for sale in Vanukuru offer an excellent opportunity for homebuyers and investors seeking peaceful surroundings with strong growth potential.",
     highlights: [
       "Close proximity to Vijayawada city.",
@@ -37,7 +37,7 @@ const properties = [
     title: "Open Plots For Sale In Yakamuru (Vuyyuru)",
     location: "Yakamuru, Vuyyuru",
     tag: "Emerging Zone", tagColor: "bg-green-100 text-green-700",
-    img: "/open plot.png",
+    img: "/plot2.JPG",
     desc: "Yakamuru has become a noteworthy destination for people looking to buy open plots for residential development, investment, or future home construction.",
     highlights: [
       "Proximity to Vijayawada and expanding infrastructure.",
@@ -51,7 +51,7 @@ const properties = [
     title: "Open Plots For Sale In Mallavalli",
     location: "Mallavalli, Krishna District",
     tag: "APIIC Zone", tagColor: "bg-purple-100 text-purple-700",
-    img: "/open plot.png",
+    img: "/plot2.JPG",
     desc: "Mallavalli is rapidly emerging as one of the most promising real estate destinations in Andhra Pradesh, with excellent connectivity to Hanuman Junction, Nuzvid, Gannavaram, and Vijayawada.",
     highlights: [
       "Close to APIIC Industrial Park.",
@@ -65,7 +65,7 @@ const properties = [
     title: "Open Plots For Sale In Pedamaddali (Pamarru)",
     location: "Pedamaddali, Krishna District",
     tag: "New Listing", tagColor: "bg-red-100 text-red-700",
-    img: "/open plot.png",
+    img: "/plot2.JPG",
     desc: "Pedamaddali is one of the emerging land destinations near Vijayawada with strong growth potential, making it attractive for both homeowners and investors.",
     highlights: [
       "Good connectivity to key transport routes.",
@@ -79,7 +79,7 @@ const properties = [
     title: "Open Plots For Sale In Gannavaram",
     location: "Gannavaram, Andhra Pradesh",
     tag: "Airport Proximity", tagColor: "bg-yellow-100 text-yellow-700",
-    img: "/open plot.png",
+    img: "/plot2.JPG",
     desc: "Gannavaram's progressive development means land prices are expected to appreciate, offering good returns for early buyers near the airport.",
     highlights: [
       "Near Gannavaram Airport.",
@@ -142,10 +142,10 @@ export default function PropertiesPage() {
                     </ul>
                   </div>
                   <Link
-                    href="/contact"
+                    href={`/properties/${p.id === 1 ? "capital-amaravathi-plot" : p.id === 2 ? "vanukuru-open-plot" : p.id === 3 ? "open-plots-yakamuru" : p.id === 4 ? "open-plots-mallavalli" : p.id === 5 ? "open-plots-pedamaddali" : "gannavaram-premium-plot"}`}
                     className="block text-center bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold py-2 rounded-lg transition-colors mt-auto"
                   >
-                    Enquire Now
+                    View Details →
                   </Link>
                 </div>
               </div>
