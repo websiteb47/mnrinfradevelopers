@@ -135,7 +135,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 mb-0.5">Address</p>
-                    <p className="text-sm text-gray-700">Autonagar 100 Feet Road Bunder Road, Vijayawada</p>
+                    <p className="text-sm text-gray-700">55/1/7/9, Patamata, Benz Circle, Vijayawada, Andhra Pradesh 520010</p>
                   </div>
                 </div>
 
@@ -161,13 +161,15 @@ export default function ContactPage() {
               <h2 className="text-xl font-bold mb-4">SOCIAL MEDIA</h2>
               <div className="flex gap-3">
                 {[
-                  { label: "Facebook", icon: "f" },
-                  { label: "Instagram", icon: "📷" },
-                  { label: "YouTube", icon: "▶" },
+                  { label: "Facebook", icon: "f", href: "https://www.facebook.com/mnrinfradevelopersvijayawada" },
+                  { label: "Instagram", icon: "📷", href: "https://www.instagram.com/mnrinfradevelopers.info/?hl=en" },
+                  { label: "YouTube", icon: "▶", href: "https://www.youtube.com/@m.nageswararaoyadav.mnrinf7445" },
                 ].map((s) => (
                   <a
                     key={s.label}
-                    href="#"
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={s.label}
                     className="w-10 h-10 border border-gray-200 rounded flex items-center justify-center text-gray-600 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-600 transition-colors text-sm font-bold"
                   >

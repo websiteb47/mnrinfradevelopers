@@ -12,31 +12,28 @@ export default function Footer() {
             company focussed on residential, commercial, and plotted projects.
           </p>
           <div className="flex gap-3">
-            <a
-              href="#"
-              aria-label="Facebook"
-              className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors"
-            >
+            <a href="https://www.facebook.com/mnrinfradevelopersvijayawada" target="_blank" rel="noopener noreferrer"
+              aria-label="Facebook" className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
               </svg>
             </a>
-            <a
-              href="#"
-              aria-label="Instagram"
-              className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors"
-            >
+            <a href="https://www.instagram.com/mnrinfradevelopers.info/?hl=en" target="_blank" rel="noopener noreferrer"
+              aria-label="Instagram" className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" strokeWidth="2"/>
                 <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2"/>
                 <circle cx="17.5" cy="6.5" r="1" />
               </svg>
             </a>
-            <a
-              href="#"
-              aria-label="YouTube"
-              className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors"
-            >
+            <a href="https://x.com/MNRInfra_vij" target="_blank" rel="noopener noreferrer"
+              aria-label="Twitter / X" className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@m.nageswararaoyadav.mnrinf7445" target="_blank" rel="noopener noreferrer"
+              aria-label="YouTube" className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
                 <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white" />
@@ -71,7 +68,7 @@ export default function Footer() {
               </svg>
               +91 73969 01149
             </p>
-            <p>Autonagar 100 Feet Road Bunder Road, Vijayawada</p>
+            <p>55/1/7/9, Patamata, Benz Circle, Vijayawada, Andhra Pradesh 520010</p>
             <p>contact@mnrinfradevelopers.com</p>
           </div>
 

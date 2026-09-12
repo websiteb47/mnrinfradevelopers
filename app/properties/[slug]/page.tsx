@@ -6,7 +6,7 @@ const properties = [
   {
     slug: "capital-amaravathi-plot",
     badge: "For Sale",
-    img: "/Amaravati Plots.png",
+    img: "/plot1.JPG",
     title: "Capital Amaravathi Plot",
     location: "Amaravathi, Andhra Pradesh",
     size: "200 sq yds",
@@ -27,7 +27,7 @@ const properties = [
   {
     slug: "vanukuru-open-plot",
     badge: "New Listing",
-    img: "/open plot.png",
+    img: "/plot2.JPG",
     title: "Vanukuru Open Plot",
     location: "Vanukuru, near Vijayawada",
     size: "150 sq yds",
@@ -47,7 +47,7 @@ const properties = [
   {
     slug: "gannavaram-premium-plot",
     badge: "Premium",
-    img: "/Amaravati Plots.png",
+    img: "/plot3.JPG",
     title: "Gannavaram Premium Plot",
     location: "Gannavaram, Krishna Dist.",
     size: "300 sq yds",
@@ -69,7 +69,7 @@ const properties = [
   {
     slug: "open-plots-mallavalli",
     badge: "APIIC Zone",
-    img: "/open plot.png",
+    img: "/plot4.JPG",
     title: "Open Plots For Sale In Mallavalli",
     location: "Mallavalli, Krishna District",
     size: "150–300 sq yds",
@@ -88,7 +88,7 @@ const properties = [
   {
     slug: "open-plots-pedamaddali",
     badge: "New Listing",
-    img: "/open plot.png",
+    img: "/Amaravati Plots.png",
     title: "Open Plots For Sale In Pedamaddali",
     location: "Pedamaddali, Krishna District",
     size: "100–200 sq yds",
@@ -205,7 +205,7 @@ export default async function PropertyDetailPage({
             </a>
             <div className="mt-5 pt-5 border-t border-gray-200 text-sm text-gray-500 space-y-2">
               <p>📞 <a href="tel:+917396901149" className="text-blue-600">+91 73969 01149</a></p>
-              <p>📍 Autonagar 100 Feet Road, Vijayawada</p>
+              <p>📍 55/1/7/9, Patamata, Benz Circle, Vijayawada, AP 520010</p>
             </div>
           </div>
         </div>

@@ -45,7 +45,7 @@ const pillars = [
 ];
 
 const stats = [
-  { value: "5+", label: "Years of Excellence" },
+  { value: "33+", label: "Years of Excellence" },
   { value: "200+", label: "Happy Families" },
   { value: "10+", label: "Signature Projects" },
   { value: "100%", label: "Customer Focus" },
