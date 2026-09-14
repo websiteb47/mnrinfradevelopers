@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { ThemeProvider } from "./context/ThemeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,10 +23,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${geistSans.variable}`}>
-      <body className="min-h-full flex flex-col font-sans">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+      <body className="min-h-full flex flex-col font-sans bg-white dark:bg-gray-950 dark:text-white transition-colors duration-300">
+        <ThemeProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
 
         {/* WhatsApp floating button */}
         <a
@@ -45,6 +47,7 @@ export default function RootLayout({
             </svg>
           </span>
         </a>
+        </ThemeProvider>
       </body>
     </html>
   );

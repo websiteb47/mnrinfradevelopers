@@ -4,19 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import AmenityCards from "./components/AmenityCards";
 import FeaturedCards from "./components/FeaturedCards";
-
-const stats = [
-  { value: "5+", label: "Years Completed" },
-  { value: "200+", label: "Happy Families" },
-  { value: "50+", label: "Associates" },
-  { value: "10+", label: "Projects Completed" },
-];
-
-const recentProjects = [
-  { title: "Open Plots In Capital Amaravathi", desc: "APCRDA-approved layouts with clear title and ready infrastructure near the capital region.", tag: "Amaravathi", color: "text-blue-600", img: "/plot4.JPG" },
-  { title: "Open Plots For Sale In Mallavalli", desc: "Rapidly emerging real estate destination near APIIC Industrial Park with excellent connectivity.", tag: "Mallavalli", color: "text-purple-600", img: "/Amaravati Plots.png" },
-  { title: "Open Plots For Sale In Gannavaram", desc: "Progressive development near airport — good returns expected for early buyers.", tag: "Gannavaram", color: "text-green-600", img: "/open plot.png" },
-];
+import StatsSection from "./components/StatsSection";
 
 const lifestyleAmenities = [
   { title: "24/7 Security", desc: "Round-the-clock security with trained guards and CCTV surveillance.", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" },
@@ -68,10 +56,10 @@ export default function Home() {
         </div>
 
         {/* Desktop landscape (visible md and above) */}
-        <div className="hidden md:block relative w-full" style={{ paddingBottom: "56.25%" }}>
+        <div className="hidden md:block relative w-full" style={{ height: "calc(100vh - 9rem)" }}>
           {desktopSlides.map((src, i) => (
             <Image key={src} src={src} alt={`MNR slide ${i + 1}`} fill
-              className={`object-contain transition-opacity duration-1000 ${i === current ? "opacity-100" : "opacity-0"}`}
+              className={`object-cover object-center transition-opacity duration-1000 ${i === current ? "opacity-100" : "opacity-0"}`}
               priority={i === 0} />
           ))}
           <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2 z-10">
@@ -89,6 +77,9 @@ export default function Home() {
 
       {/* ── FEATURED COLLECTION ── */}
       <FeaturedCards />
+
+      {/* ── STATS ── */}
+      <StatsSection />
 
       {/* ── WHY AMARAVATHI ── */}
       <section className="py-16 bg-white">
@@ -150,47 +141,6 @@ export default function Home() {
 
       {/* ── AMENITIES ── */}
       <AmenityCards />
-
-      {/* ── STATS ── */}
-      <section className="bg-[#1e3a5f] text-white py-14">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-10">OUR SUCCESS STORY</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <div className="text-4xl font-extrabold text-red-400 mb-1">{s.value}</div>
-                <div className="text-xs text-gray-300 uppercase tracking-wider">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── RECENT PROJECTS ── */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center text-gray-900 mb-1">OUR RECENT PROJECTS</h2>
-          <div className="flex justify-center items-center gap-1 mb-10">
-            <span className="w-6 h-1 bg-blue-300 rounded" />
-            <span className="w-10 h-1 bg-blue-600 rounded" />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7 items-stretch">
-            {recentProjects.map((p) => (
-              <div key={p.title} className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition-shadow flex flex-col">
-                <div className="h-44 relative overflow-hidden flex-shrink-0">
-                  <Image src={p.img} alt={p.title} fill className="object-cover hover:scale-105 transition-transform duration-500" />
-                </div>
-                <div className="p-5 flex flex-col flex-1">
-                  <span className={`text-xs font-semibold uppercase tracking-wide ${p.color}`}>{p.tag}</span>
-                  <h3 className={`font-bold text-sm mt-1 mb-2 ${p.color}`}>{p.title}</h3>
-                  <p className="text-gray-500 text-sm mb-4 leading-relaxed flex-1">{p.desc}</p>
-                  <Link href="/properties" className={`text-sm font-semibold ${p.color} hover:underline mt-auto`}>Read More →</Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── QUOTE ── */}
       <section className="bg-gray-50 py-6 text-center border-t border-gray-100">
