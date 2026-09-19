@@ -159,6 +159,34 @@ export default function Home() {
       {/* ── AMENITIES ── */}
       <AmenityCards />
 
+      {/* ── TESTIMONIALS ── */}
+      <section className="py-16 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-extrabold text-center text-[#1b5e20] mb-1">WHAT OUR CLIENTS SAY</h2>
+          <div className="flex justify-center mb-10">
+            <div className="w-16 h-1 bg-green-500 rounded" />
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-[#f9f7f4] rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+              <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xl mb-4">R</div>
+              <p className="text-gray-600 italic mb-6 flex-1">"The transparency and quality of the plotted layouts exceeded our expectations. Truly a trusted partner in investment!"</p>
+              <h4 className="font-bold text-gray-900 text-sm tracking-wide uppercase">- Rohan Sharma</h4>
+            </div>
+            <div className="bg-[#f9f7f4] rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+              <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-xl mb-4">P</div>
+              <p className="text-gray-600 italic mb-6 flex-1">"MNR Infra Developers made our dream of owning a piece of Amaravathi a reality. Their team is extremely professional and supportive."</p>
+              <h4 className="font-bold text-gray-900 text-sm tracking-wide uppercase">- Priya & Suresh</h4>
+            </div>
+            <div className="bg-[#f9f7f4] rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+              <div className="w-14 h-14 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-xl mb-4">V</div>
+              <p className="text-gray-600 italic mb-6 flex-1">"Exceptional amenities and a well-thought-out master plan. Investing here was the best decision for our family's future."</p>
+              <h4 className="font-bold text-gray-900 text-sm tracking-wide uppercase">- Venkat Reddy</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── QUOTE ── */}
       <section className="bg-gray-50 py-6 text-center border-t border-gray-100">
         <p className="text-gray-500 text-sm italic">
