@@ -188,10 +188,21 @@ export default function Home() {
       </section>
 
       {/* ── QUOTE ── */}
-      <section className="bg-gray-50 py-6 text-center border-t border-gray-100">
-        <p className="text-gray-500 text-sm italic">
-          &ldquo;లక్ష్యం ఉన్నవాడు అవకాశాలు చూస్తాడు లక్ష్యం లేనివాడు అడ్డంకులు మాత్రమే చూస్తాడు&rdquo;
-        </p>
+      <section className="relative bg-gradient-to-br from-[#0a2342] to-[#17462a] py-16 px-6 overflow-hidden flex items-center justify-center border-t-4 border-green-500">
+        {/* Decorative Quote Marks */}
+        <div className="absolute top-0 left-4 md:left-20 text-[10rem] md:text-[15rem] leading-none font-serif text-white/5 select-none -translate-y-6">
+          &ldquo;
+        </div>
+        
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <p className="text-white text-xl md:text-3xl lg:text-4xl font-extrabold leading-loose tracking-wide drop-shadow-lg">
+            <span className="text-green-400">లక్ష్యం</span> ఉన్నవాడు అవకాశాలు చూస్తాడు, <br className="hidden md:block" /> 
+            <span className="text-red-400">లక్ష్యం</span> లేనివాడు అడ్డంకులు మాత్రమే చూస్తాడు.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent rounded-full" />
+          </div>
+        </div>
       </section>
     </div>
   );
