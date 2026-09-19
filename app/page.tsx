@@ -75,6 +75,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── OVERVIEW VIDEOS ── */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-black">
+              <video src="/mnr%20video1.mp4" controls playsInline className="w-full h-full object-cover aspect-[9/16]" />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-black">
+              <video src="/mnr%20video2.mp4" controls playsInline className="w-full h-full object-cover aspect-[9/16]" />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-black">
+              <video src="/mnr%20video3.mp4" controls playsInline className="w-full h-full object-cover aspect-[9/16]" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── FEATURED COLLECTION ── */}
       <FeaturedCards />
 

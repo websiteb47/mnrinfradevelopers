@@ -91,8 +91,16 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-red-600 text-center text-sm py-3">
-        Copyright © mnrinfradevelopers.com 2020
+      <div className="bg-red-600 text-sm py-3">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+          <span>Copyright © mnrinfradevelopers.com 2020</span>
+          <span className="mt-2 md:mt-0 text-white/80">
+            Designed and developed by{" "}
+            <a href="https://hexareachsolutions.com" target="_blank" rel="noopener noreferrer" className="hover:text-white underline decoration-white/30 underline-offset-2 transition-colors">
+              hexareachsolutions.com
+            </a>
+          </span>
+        </div>
       </div>
     </footer>
   );
